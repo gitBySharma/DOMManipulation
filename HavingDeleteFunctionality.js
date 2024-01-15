@@ -35,6 +35,7 @@ function handleFormSubmit(event){
     detailsToDisplay.appendChild(document.createTextNode("        "));
     detailsToDisplay.appendChild(deleteButton);
     deleteButton.className = 'del-btn';
+    deleteButton.setAttribute('id', 'delete-button');
     
     //appending the list of details to the unordered list
     list.appendChild(detailsToDisplay);
@@ -42,7 +43,7 @@ function handleFormSubmit(event){
     //creating the delete functionality
 list.addEventListener('click', function(event){
     event.preventDefault();
-    if(event.target.classList.contains('del-btn')){
+    if(event.target.id == ('delete-button')){
         const deleteDetails = event.target.parentElement;
         list.removeChild(deleteDetails);
         localStorage.removeItem(formData.email);
